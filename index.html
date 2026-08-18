@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Primeiro Site | Aula de Programação</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        header {
+            min-height: 75vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #315efb55,
+                    transparent 45%
+                ),
+                #0f172a;
+        }
+
+        .hero {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #315efb;
+
+            border-radius: 30px;
+
+            color: #8da6ff;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 76px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
+        }
+
+        .azul {
+            color: #5d7cff;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #94a3b8;
+
+            font-size: 19px;
+        }
+
+        .botao-principal {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 14px 24px;
+
+            border-radius: 12px;
+
+            background: #315efb;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .botao-principal:hover {
+            transform: translateY(-3px);
+
+            background: #416cff;
+        }
+
+        main {
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 70px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        .titulo-secao {
+            margin-bottom: 35px;
+        }
+
+        .numero {
+            color: #5d7cff;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 36px;
+
+            margin-top: 5px;
+
+            color: white;
+        }
+
+        .descricao {
+            color: #94a3b8;
+
+            margin-top: 10px;
+
+            max-width: 700px;
+        }
+
+        .passos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 18px;
+        }
+
+        .passo {
+            padding: 25px;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 18px;
+
+            background: #111c31;
+        }
+
+        .passo-numero {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: #315efb;
+
+            color: white;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .passo h3 {
+            color: white;
+
+            margin-bottom: 8px;
+        }
+
+        .passo p {
+            color: #94a3b8;
+
+            font-size: 15px;
+        }
+
+        .passo strong {
+            color: #cbd5e1;
+        }
+
+        .aviso {
+            padding: 20px;
+
+            border-left: 4px solid #315efb;
+
+            border-radius: 10px;
+
+            background: #17233a;
+
+            color: #cbd5e1;
+
+            margin-top: 25px;
+        }
+
+        .aviso strong {
+            color: white;
+        }
+
+        .codigo-container {
+            margin-top: 25px;
+
+            border: 1px solid #26334d;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background: #090e18;
+        }
+
+        .codigo-topo {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 12px 15px;
+
+            background: #151f32;
+
+            border-bottom: 1px solid #26334d;
+        }
+
+        .codigo-nome {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: bold;
+        }
+
+        .ponto {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #315efb;
+        }
+
+        .copiar {
+            border: 0;
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
+            background: #243454;
+
+            color: #dbe5ff;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .copiar:hover {
+            background: #315efb;
+        }
+
+        pre {
+            margin: 0;
+
+            padding: 22px;
+
+            overflow-x: auto;
+
+            color: #dbeafe;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        .desafios {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .desafio {
+            padding: 22px;
+
+            border: 1px solid #26334d;
+
+            border-radius: 15px;
+
+            background: #111c31;
+        }
+
+        .desafio h3 {
+            color: white;
+
+            margin-bottom: 7px;
+        }
+
+        .desafio p {
+            color: #94a3b8;
+        }
+
+        .dificuldade {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            padding: 4px 9px;
+
+            border-radius: 20px;
+
+            background: #1e293b;
+
+            color: #8da6ff;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .explorar {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            background: #111c31;
+
+            border: 1px solid #26334d;
+        }
+
+        .explorar h3 {
+            color: white;
+
+            margin-bottom: 10px;
+        }
+
+        .explorar p {
+            color: #94a3b8;
+
+            margin-bottom: 10px;
+        }
+
+        .explorar ul {
+            margin-left: 20px;
+
+            color: #cbd5e1;
+        }
+
+        .explorar li {
+            margin: 5px 0;
+        }
+
+        .final {
+            padding: 45px 25px;
+
+            text-align: center;
+
+            border: 1px solid #26334d;
+
+            border-radius: 22px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #315efb25,
+                    transparent 60%
+                ),
+                #111c31;
+        }
+
+        .final h2 {
+            margin-bottom: 12px;
+        }
+
+        .final p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #94a3b8;
+        }
+
+        footer {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #1e293b;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            h2 {
+                font-size: 29px;
+            }
+
+            pre {
+                font-size: 12px;
+            }
+
+            .codigo-topo {
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="hero">
+
+        <span class="tag">
+            AULA DE PROGRAMAÇÃO
+        </span>
+
+        <h1>
+            Meu primeiro
+            <span class="azul">site.</span>
+        </h1>
+
+        <p>
+            Você vai criar seu primeiro projeto usando
+            HTML, CSS e JavaScript e ver tudo funcionando
+            em tempo real.
+        </p>
+
+        <a
+            href="#comecar"
+            class="botao-principal"
+        >
+            Começar agora
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+    <!-- PASSO 1 -->
+
+    <section id="comecar">
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                PASSO 01
+            </div>
+
+            <h2>
+                Abra o CodePen
+            </h2>
+
+            <p class="descricao">
+                Não precisa criar nenhuma pasta,
+                arquivo ou instalar programa.
+                Vamos fazer tudo diretamente pelo navegador.
+            </p>
+
+        </div>
+
+
+        <div class="passos">
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    1
+                </div>
+
+                <h3>
+                    Acesse o CodePen
+                </h3>
+
+                <p>
+                    Abra o CodePen e entre no editor
+                    de projetos.
+                </p>
+
+            </div>
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    2
+                </div>
+
+                <h3>
+                    Crie um Pen
+                </h3>
+
+                <p>
+                    No editor você encontrará três áreas:
+                    <strong>HTML, CSS e JS.</strong>
+                </p>
+
+            </div>
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    3
+                </div>
+
+                <h3>
+                    Copie os códigos
+                </h3>
+
+                <p>
+                    Copie cada código abaixo e cole
+                    na área correspondente.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="aviso">
+
+            <strong>
+                Importante:
+            </strong>
+
+            não crie arquivos como
+            index.html, style.css ou script.js.
+            O CodePen já separa tudo para você.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- HTML -->
+
+    <section>
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                PASSO 02
+            </div>
+
+            <h2>
+                Coloque o HTML
+            </h2>
+
+            <p class="descricao">
+                Copie o código abaixo e cole na área
+                <strong>HTML</strong> do CodePen.
+            </p>
+
+        </div>
+
+
+        <div class="codigo-container">
+
+            <div class="codigo-topo">
+
+                <div class="codigo-nome">
+
+                    <span class="ponto"></span>
+
+                    HTML
+
+                </div>
+
+
+                <button
+                    class="copiar"
+                    onclick="copiarCodigo('html-code', this)"
+                >
+                    Copiar código
+                </button>
+
+            </div>
+
+
+            <pre><code id="html-code">&lt;div class="card" id="card"&gt;
+
+    &lt;h1&gt;Olá!&lt;/h1&gt;
+
+    &lt;p id="mensagem"&gt;
+        Estou aprendendo programação!
+    &lt;/p&gt;
+
+    &lt;button onclick="comemorar()"&gt;
+        Clique aqui
+    &lt;/button&gt;
+
+    &lt;small id="contador"&gt;
+        Cliques: 0
+    &lt;/small&gt;
+
+    &lt;div class="progresso"&gt;
+        &lt;div class="barra" id="barra"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;small class="meta"&gt;
+        Meta: 10 cliques
+    &lt;/small&gt;
+
+&lt;/div&gt;</code></pre>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CSS -->
+
+    <section>
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                PASSO 03
+            </div>
+
+            <h2>
+                Coloque o CSS
+            </h2>
+
+            <p class="descricao">
+                Agora copie o código abaixo e cole
+                na área <strong>CSS</strong>.
+            </p>
+
+        </div>
+
+
+        <div class="codigo-container">
+
+            <div class="codigo-topo">
+
+                <div class="codigo-nome">
+
+                    <span class="ponto"></span>
+
+                    CSS
+
+                </div>
+
+
+                <button
+                    class="copiar"
+                    onclick="copiarCodigo('css-code', this)"
+                >
+                    Copiar código
+                </button>
+
+            </div>
+
+
+            <pre><code id="css-code">body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: #e8f0ff;
+
+    overflow: hidden;
+}
+
+.card {
+    width: 300px;
+    padding: 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px #0002;
+
+    transition: transform 0.2s;
+}
+
+.card.pular {
+    transform: scale(1.04) translateY(-8px);
+}
+
+h1 {
+    color: #315efb;
+}
+
+p {
+    color: #555;
+    font-size: 17px;
+}
+
+button {
+    padding: 12px 22px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #315efb;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+small {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #888;
+}
+
+
+/* BARRA DE PROGRESSO */
+
+.progresso {
+    width: 100%;
+    height: 10px;
+
+    margin-top: 18px;
+
+    background: #e5e7eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.barra {
+    width: 0%;
+    height: 100%;
+
+    background: #315efb;
+
+    border-radius: 20px;
+
+    transition: width 0.3s;
+}
+
+.meta {
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+
+/* CONFETES */
+
+.confete {
+    position: fixed;
+
+    top: -20px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 2px;
+
+    animation:
+        cair var(--tempo)
+        linear forwards;
+
+    z-index: 20;
+}
+
+@keyframes cair {
+
+    0% {
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(var(--movimento))
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}</code></pre>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <section>
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                PASSO 04
+            </div>
+
+            <h2>
+                Coloque o JavaScript
+            </h2>
+
+            <p class="descricao">
+                Por último, copie este código e cole
+                na área <strong>JS</strong>.
+            </p>
+
+        </div>
+
+
+        <div class="codigo-container">
+
+            <div class="codigo-topo">
+
+                <div class="codigo-nome">
+
+                    <span class="ponto"></span>
+
+                    JavaScript
+
+                </div>
+
+
+                <button
+                    class="copiar"
+                    onclick="copiarCodigo('js-code', this)"
+                >
+                    Copiar código
+                </button>
+
+            </div>
+
+
+            <pre><code id="js-code">let cliques = 0;
+
+
+/* FUNÇÃO DO BOTÃO */
+
+function comemorar() {
+
+    cliques++;
+
+
+    /* MENSAGEM */
+
+    document.getElementById("mensagem").innerText =
+        "Você fez seu site funcionar!";
+
+
+    /* CONTADOR */
+
+    document.getElementById("contador").innerText =
+        "Cliques: " + cliques;
+
+
+    /* BARRA DE PROGRESSO */
+
+    let progresso = cliques * 10;
+
+    if (progresso &gt; 100) {
+        progresso = 100;
+    }
+
+    document.getElementById("barra").style.width =
+        progresso + "%";
+
+
+    /* ANIMAÇÃO DO CARTÃO */
+
+    let card = document.getElementById("card");
+
+    card.classList.remove("pular");
+
+    void card.offsetWidth;
+
+    card.classList.add("pular");
+
+
+    /* QUANTIDADE DE CONFETES */
+
+    for (let i = 0; i &lt; 40; i++) {
+
+        let confete =
+            document.createElement("div");
+
+
+        confete.className = "confete";
+
+
+        /* POSIÇÃO ALEATÓRIA */
+
+        confete.style.left =
+            Math.random() * 100 + "vw";
+
+
+        /* TAMANHO ALEATÓRIO */
+
+        let tamanho =
+            Math.random() * 8 + 6;
+
+        confete.style.width =
+            tamanho + "px";
+
+        confete.style.height =
+            tamanho + "px";
+
+
+        /* VELOCIDADE ALEATÓRIA */
+
+        confete.style.setProperty(
+            "--tempo",
+            Math.random() * 2 + 2 + "s"
+        );
+
+
+        /* MOVIMENTO LATERAL */
+
+        confete.style.setProperty(
+            "--movimento",
+            (Math.random() * 200 - 100) + "px"
+        );
+
+
+        /* CORES */
+
+        confete.style.background =
+            [
+                "#315efb",
+                "#ff4757",
+                "#2ed573",
+                "#ffa502",
+                "#a55eea"
+            ][
+                Math.floor(Math.random() * 5)
+            ];
+
+
+        document.body.appendChild(confete);
+
+
+        /* REMOVE O CONFETE */
+
+        setTimeout(
+            () =&gt; confete.remove(),
+            4000
+        );
+
+    }
+
+}</code></pre>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TESTE -->
+
+    <section>
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                PASSO 05
+            </div>
+
+            <h2>
+                Teste seu projeto
+            </h2>
+
+            <p class="descricao">
+                Se você colocou os três códigos nos
+                lugares certos, o projeto já deve estar
+                funcionando.
+            </p>
+
+        </div>
+
+
+        <div class="passos">
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    1
+                </div>
+
+                <h3>
+                    Veja o cartão
+                </h3>
+
+                <p>
+                    Um cartão deve aparecer no centro
+                    da tela.
+                </p>
+
+            </div>
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    2
+                </div>
+
+                <h3>
+                    Clique no botão
+                </h3>
+
+                <p>
+                    A mensagem muda, o contador aumenta
+                    e a barra avança.
+                </p>
+
+            </div>
+
+
+            <div class="passo">
+
+                <div class="passo-numero">
+                    3
+                </div>
+
+                <h3>
+                    Observe a animação
+                </h3>
+
+                <p>
+                    O cartão se movimenta e os confetes
+                    aparecem espalhados pela tela.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- DESAFIOS -->
+
+    <section>
+
+        <div class="titulo-secao">
+
+            <div class="numero">
+                DESAFIOS
+            </div>
+
+            <h2>
+                Agora é sua vez
+            </h2>
+
+            <p class="descricao">
+                O projeto já está funcionando.
+                Agora tente modificar algumas partes
+                do código.
+            </p>
+
+        </div>
+
+
+        <div class="desafios">
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 1 — Mude o título
+                </h3>
+
+                <p>
+                    Troque o texto
+                    <strong>"Olá!"</strong>
+                    por uma frase criada por você.
+                </p>
+
+                <span class="dificuldade">
+                    FÁCIL
+                </span>
+
+            </div>
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 2 — Mude as cores
+                </h3>
+
+                <p>
+                    Altere a cor do título, do botão
+                    ou do fundo da página.
+                </p>
+
+                <span class="dificuldade">
+                    FÁCIL
+                </span>
+
+            </div>
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 3 — Mude o tamanho
+                </h3>
+
+                <p>
+                    Deixe o cartão maior ou menor.
+                    Procure o <strong>width</strong>
+                    e experimente outro valor.
+                </p>
+
+                <span class="dificuldade">
+                    FÁCIL
+                </span>
+
+            </div>
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 4 — Mais confetes
+                </h3>
+
+                <p>
+                    Encontre o número
+                    <strong>40</strong>
+                    no JavaScript e tente fazer
+                    aparecer <strong>50 confetes</strong>.
+                </p>
+
+                <span class="dificuldade">
+                    FÁCIL
+                </span>
+
+            </div>
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 5 — Mude os confetes
+                </h3>
+
+                <p>
+                    Troque algumas cores dos confetes
+                    por cores escolhidas por você.
+                </p>
+
+                <span class="dificuldade">
+                    FÁCIL → MÉDIO
+                </span>
+
+            </div>
+
+
+            <div class="desafio">
+
+                <h3>
+                    Desafio 6 — Mude a mensagem
+                </h3>
+
+                <p>
+                    Encontre no JavaScript a frase
+                    <strong>
+                        "Você fez seu site funcionar!"
+                    </strong>
+                    e troque por uma mensagem criada
+                    por você.
+                </p>
+
+                <span class="dificuldade">
+                    MÉDIO
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="explorar">
+
+            <h3>
+                Explore o código
+            </h3>
+
+            <p>
+                Depois de terminar os desafios,
+                tente encontrar onde estão estas partes
+                do projeto:
+            </p>
+
+            <ul>
+
+                <li>
+                    A cor do botão
+                </li>
+
+                <li>
+                    O tamanho do cartão
+                </li>
+
+                <li>
+                    A quantidade de confetes
+                </li>
+
+                <li>
+                    As cores dos confetes
+                </li>
+
+                <li>
+                    A mensagem
+                </li>
+
+                <li>
+                    O tamanho do título
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FINAL -->
+
+    <section>
+
+        <div class="final">
+
+            <h2>
+                Você acabou de programar.
+            </h2>
+
+            <p>
+                Agora tente modificar o projeto,
+                testar suas ideias e descobrir
+                o que acontece quando você muda
+                o código.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    Aula de Cultura Digital
+    •
+    Introdução à Programação
+
+</footer>
+
+
+
+<script>
+
+function copiarCodigo(id, botao) {
+
+    const codigo =
+        document
+            .getElementById(id)
+            .textContent;
+
+
+    navigator.clipboard
+        .writeText(codigo)
+
+        .then(() => {
+
+            const textoOriginal =
+                botao.textContent;
+
+
+            botao.textContent =
+                "Copiado!";
+
+
+            setTimeout(() => {
+
+                botao.textContent =
+                    textoOriginal;
+
+            }, 1500);
+
+        })
+
+        .catch(() => {
+
+            alert(
+                "Não foi possível copiar automaticamente. " +
+                "Selecione o código e copie manualmente."
+            );
+
+        });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
